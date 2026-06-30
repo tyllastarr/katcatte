@@ -137,7 +137,7 @@ const subRedemption = listener.onChannelSubscription(config.twitch.channelId, as
         SetTime();
         console.log("[" + hourString + ":" + minuteString + "] Meow!  " + e.userDisplayName + " subscribed!")
         discordClient.channels.cache.get("1047634550303506472").send("Meow!  " + e.userDisplayName + " subscribed!");        
-        const sqlInsert = "INSERT INTO checkinEvents(CheckID, Username) VALUES(11, ?)";
+        const sqlInsert = "INSERT INTO eventInstances(EventTypeID, Username) VALUES(11, ?)";
         await mysqlConnection.promise().query(sqlInsert, [e.userDisplayName]);
     } catch(err) {
         console.log(err);
@@ -149,7 +149,7 @@ const subMessageRedemption = listener.onChannelSubscriptionMessage(config.twitch
         SetTime();
         console.log("[" + hourString + ":" + minuteString + "] Meow!  " + e.userDisplayName + " subscribed!")
         discordClient.channels.cache.get("1047634550303506472").send("Meow!  " + e.userDisplayName + " subscribed!");        
-        const sqlInsert = "INSERT INTO checkinEvents(CheckID, Username) VALUES(11, ?)";
+        const sqlInsert = "INSERT INTO eventInstances(EventTypeID, Username) VALUES(11, ?)";
         await mysqlConnection.promise().query(sqlInsert, [e.userDisplayName]);
     } catch(err) {
         console.log(err);
@@ -161,7 +161,7 @@ const subGiftRedemption = listener.onChannelSubscriptionGift(config.twitch.chann
         SetTime();
         console.log("[" + hourString + ":" + minuteString + "] Meow!  " + e.gifterDisplayName + " subscribed!")
         discordClient.channels.cache.get("1047634550303506472").send("Meow!  " + e.gifterDisplayName + " subscribed!");        
-        const sqlInsert = "INSERT INTO checkinEvents(CheckID, Username) VALUES(13, ?)";
+        const sqlInsert = "INSERT INTO eventInstances(EventTypeID, Username) VALUES(13, ?)";
         await mysqlConnection.promise().query(sqlInsert, [e.gifterDisplayName]);
     } catch(err) {
         console.log(err);
